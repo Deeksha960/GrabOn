@@ -26,13 +26,15 @@ const FoodItem = ({id,name,price,description,image}) => {
               }
           </div>
           <div className="food-item-info">
-              <div className="food-item-name-rating">
-                  <p>{name}</p>
-                  <img src={assets.rating_starts} alt="" />
-              </div>
+             
               <p className="food-item-desc">{description}</p>
               <p className="food-item-price">₹{price}</p>
           </div>
+          <div className="food-item-name-rating">
+                  <p>{name}</p>
+                  <img src={assets.rating_starts} alt="" />
+              </div>
+              
           <div className='view-cart'>
         <Link to='/cart'><img src={assets.basket_icon} alt="" /></Link>
 </div>
@@ -47,7 +49,3 @@ FoodItem.propTypes = { id: PropTypes.string.isRequired, name: PropTypes.string.i
 
 export default FoodItem
 
-
-/*<button onClick={()=>navigate('/Cart')}>View Cart</button>
-const navigate = useNavigate();
-*/
