@@ -1,0 +1,133 @@
+.Food{
+    color: black;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+#wm-back-to-top {
+    z-index:999;
+    position:fixed;
+    display:flex;
+    bottom:0;
+    right:0;
+    min-width: 50px;
+    min-height: 50px;
+    flex-direction: column;
+    gap: 8px;
+    align-items:center;
+    justify-content:center;
+    box-sizing:content-box;
+    margin: 8px;
+    padding: 1px;
+    cursor:pointer;
+    opacity:0;
+    overflow:hidden;
+    transform: translateY(0px) scale(1);
+    background:transparent;
+    border-radius: 0px;
+    border-width: 0px;
+    border-color: #000000;
+    border-style:solid;
+    visibility:hidden;
+    transition: opacity .3s ease,
+      transform .3s ease,
+      visibility 0s ease .3s;
+    will-change:transform;
+    backdrop-filter: blur(0px);
+    
+  
+    &.show{
+      transform: translateY(0px);
+      opacity:1;
+      visibility: visible;
+      transition: opacity .3s ease,
+        transform .3s ease,
+        visibility 0s ease 0s;
+       
+    }
+    .icon{
+      position:relative;
+      display:flex;
+      justify-content:center;
+      line-height:0;
+      height:auto;
+      width:auto;
+    }
+   
+    svg{
+      width: 20px;
+      height: 20px;
+    }
+    path{
+      stroke-width: 18px;
+      stroke: #000000;
+    }
+    .btt-background {
+      box-sizing:border-box;
+      position:fixed;
+      top:0;
+      left:0;
+      height:100%;
+      width:100%;
+      background-color: palevioletred;
+      border-radius: 30px;
+      opacity: 1;
+      transition: opacity .3s ease;
+    }
+  
+    &:hover{
+      transform:translateY(-3px);
+      opacity: .85;
+    }
+    &:active{
+      transform: translateY(-3px) scale(.95);
+    }
+  }
+  
+
+.list-table-format{
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 0.5fr;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    border: 1px solid #cacaca;
+    font-size: 13px;
+    background: papayawhip;
+}
+
+.list-table-format.title{
+    background-color: lightpink;
+    
+}
+
+.list-table-format img{
+    width: 50px;
+}
+
+.cursor{
+    cursor: pointer;
+    display: flex;
+    color: white;
+    font-weight: 700;
+    gap: 15px;
+    padding: 6px;
+    margin: 6px;
+    margin-right: 50px;
+    border: 1px solid black;
+    background: lightcoral;
+    text-align: center;
+    border-radius: 20px;
+}
+
+@media (max-width:750px){
+    .list-table-format{
+        grid-template-columns: 1fr 3 fr 1fr;
+        gap: 15px;
+    }
+    .list-table-format.title{
+        display: none;
+    }
+    
+}
+

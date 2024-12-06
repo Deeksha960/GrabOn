@@ -1,0 +1,127 @@
+.order-item{
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr;
+    align-items: start;
+    gap: 30px;
+    border: 1px solid chartreuse;
+    padding: 20px;
+    margin: 30px 0px;
+    font-size: 14px;
+    color: #505050;
+}
+
+.order-item-food, .order-item-name{
+    font-weight: 700;
+}
+
+.order-item-name{
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+.order-item-address{
+    margin-bottom: 10px;
+}
+
+.order-item select{
+    background-color: papayawhip;
+    border: 1px solid darkorange;
+    width: max(11vw,120px);
+    padding: 10px;
+    outline: none;
+}
+
+#wm-back-to-top {
+    z-index:999;
+    position:fixed;
+    display:flex;
+    bottom:0;
+    right:0;
+    min-width: 50px;
+    min-height: 50px;
+    flex-direction: column;
+    gap: 8px;
+    align-items:center;
+    justify-content:center;
+    box-sizing:content-box;
+    margin: 8px;
+    padding: 1px;
+    cursor:pointer;
+    opacity:0;
+    overflow:hidden;
+    transform: translateY(0px) scale(1);
+    background:transparent;
+    border-radius: 0px;
+    border-width: 0px;
+    border-color: #000000;
+    border-style:solid;
+    visibility:hidden;
+    transition: opacity .3s ease,
+      transform .3s ease,
+      visibility 0s ease .3s;
+    will-change:transform;
+    backdrop-filter: blur(0px);
+    
+  
+    &.show{
+      transform: translateY(0px);
+      opacity:1;
+      visibility: visible;
+      transition: opacity .3s ease,
+        transform .3s ease,
+        visibility 0s ease 0s;
+       
+    }
+    .icon{
+      position:relative;
+      display:flex;
+      justify-content:center;
+      line-height:0;
+      height:auto;
+      width:auto;
+    }
+   
+    svg{
+      width: 20px;
+      height: 20px;
+    }
+    path{
+      stroke-width: 18px;
+      stroke: #000000;
+    }
+    .btt-background {
+      box-sizing:border-box;
+      position:fixed;
+      top:0;
+      left:0;
+      height:100%;
+      width:100%;
+      background-color: palevioletred;
+      border-radius: 30px;
+      opacity: 1;
+      transition: opacity .3s ease;
+    }
+  
+    &:hover{
+      transform:translateY(-3px);
+      opacity: .85;
+    }
+    &:active{
+      transform: translateY(-3px) scale(.95);
+    }
+  }
+  
+@media (max-width:1000px){
+    .order-item{
+        font-size: 12px;
+        grid-template-columns: 0.5fr 2fr 1fr;
+        padding: 15px 8px;
+    }
+    .order-item select{
+        padding: 5px;
+        font-size: 12px;
+    }
+    .order-item img{
+        width: 40px;
+    }
+}

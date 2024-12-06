@@ -1,0 +1,269 @@
+.navbar{
+padding: 20px 20px;
+height: 60px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+background: greenyellow;
+}
+
+.navbar .logo{
+    width: 200px;
+    height: 80px;
+    margin-top: 10px;
+}
+
+.navbar-menu{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    color: black;
+    font-size: 22px;
+    margin-right: 30px;
+}
+
+.navbar-menu img{
+    width: 20px;
+    margin-right: 4px;
+}
+
+.navbar-menu .menuu{
+    margin-right: -2px;
+    width: 16px;
+}
+
+.navbar-menu .down{
+    width: 18px;
+    margin-right: -3px;
+    
+}
+
+.navbar-menu .conn{
+    margin-right: -2px;
+}
+
+.navbar-right{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+}
+
+.search-box{
+    background: #efefef;
+    width: 120px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+
+
+.search-box img{
+    width: 18px;
+}
+
+.search-box input{
+    width: 100%;
+    background: transparent;
+    padding: 10px;
+    outline: none;
+    border: 0;
+}
+
+.navbar button{
+    background: white;
+    font-size: 16px;
+    color: black;
+    border: 1px solid darkgreen;
+    padding: 10px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.navbar button:hover{
+    background-color: thistle ;
+}
+
+.navbar .active{
+    padding-bottom: 2px;
+    border-bottom: 2px solid darkorange;
+}
+
+.navbar li{
+    cursor: pointer;
+}
+
+.navbar-search-icon{
+    position: relative;
+}
+
+.nav-cart-count{
+    position: absolute;
+    min-width:12px;
+    min-height: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -2px;
+    right: 1px;
+    font-size: 16px;
+    font-weight: 800;
+    color: black;
+}
+
+.navbar-profile{
+    position: relative;
+}
+
+.navbar-profile img{
+    width: 80%;
+    border: 3px solid palevioletred;
+    border-radius: 25px;
+}
+
+.nav-profile-dropdown{
+   position: absolute;
+   display: none;
+   right: 0;
+   z-index: 1;
+}
+
+.navbar-profile:hover .nav-profile-dropdown{
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   background-color: plum;
+   padding: 12px 25px;
+   border-radius: 4px;
+   border: 1px solid purple;
+   outline: 2px solid black;
+   list-style: none;
+}
+
+.nav-profile-dropdown li{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.nav-profile-dropdown li img{
+    width: 28px;
+    border: none;
+}
+
+.nav-profile-dropdown img{
+    width: 80px;
+}
+
+.nav-profile-dropdown li:hover{
+    color: crimson;
+}
+    
+@media (max-width:1050px) {
+    .navbar .logo{
+        width: 140px;
+    }
+    .navbar-menu{
+        gap:20px;
+        font-size: 17px;
+    }
+    .navbar-right{
+        gap: 30px;
+    }
+    .search-box{
+        display: none;
+    }
+    .navbar-right img{
+        width: 30px;
+    }
+    .nav-cart-count{
+        top: -6px;
+        font-size: 12px;
+        left: 18px;
+    }
+    .navbar-right button{
+        padding: 8px 25px;
+    }
+}
+
+@media (max-width:900px) {
+    .navbar .logo{
+        width: 120px;
+    }
+    .navbar-menu{
+        gap: 15px;
+        font-size: 16px;
+    }
+
+    .navbar-right{
+        gap: 20px;
+    }
+    .search-box{
+        display: none;
+    }
+    .navbar-right img{
+        width: 25px;
+    }
+    .navbar-right button{
+        padding: 7px 20px;
+        font-size: 15px;
+    }
+    .nav-cart-count{
+        top: -6px;
+        font-size: 12px;
+        left: 18px;
+    }
+}
+
+@media (max-width:750px) {
+    .navbar-menu{
+        display:none;
+    }
+    .search-box{
+        width: 120px;
+    }
+    
+    .navbar-search-icon img{
+     width: 70%;
+    }
+    .nav-cart-count{
+        position: absolute;
+        min-width:12px;
+        min-height: 12px;
+        display: flex;
+        top: -6px;
+        right: 6px;
+        font-size: 12px;
+        font-weight: 800;
+        color: black;
+      
+    }
+    }
+    .navbar-profile img{
+        width: 75%;
+        border: 3px solid palevioletred;
+        border-radius: 25px;
+    }
+    .nav-profile-dropdown{
+        position: absolute;
+        display: none;
+        right: 0;
+        z-index: 1;
+     }
+     .nav-profile-dropdown li{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+    }
+    
+    .nav-profile-dropdown img{
+        width: 20px;
+    }
+    
+    .nav-profile-dropdown li:hover{
+        color: crimson;
+    }
