@@ -108,3 +108,4 @@ const StoreContextProvider = (props) => {
 StoreContextProvider.propTypes = { children: PropTypes.object.isRequired, };
 
 
+export default StoreContextProvider;
