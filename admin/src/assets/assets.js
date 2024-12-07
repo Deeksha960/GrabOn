@@ -20,4 +20,4 @@ export const assets = {
   hum_icon,
 };
 
-export const url = 'https://grabon-backend.onrender.com'
+export const url = "http://localhost:4000";
