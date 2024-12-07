@@ -1,4 +1,4 @@
-import foodModel from "../models/FoodModel.js";
+import foodModel from "../models/foodModel.js";
 import fs from "fs";
 
 //add food item
@@ -11,7 +11,7 @@ const addFood = async (req, res) => {
     description: req.body.description,
     price: req.body.price,
     category: req.body.category,
-    image: image_filename
+    image: image_filename,
   });
   try {
     await food.save();
