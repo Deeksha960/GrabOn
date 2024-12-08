@@ -63,6 +63,7 @@ import parcel_icon from './parcel_icon.png'
 import back_icon from './back_icon.png'
 import success_icon from './success_icon.png'
 import order_icon from './order_icon.png'
+import home_icon from './home_icon.png'
 import location_icon from './location_icon.png'
 import hum_icon from './hum_icon.png'
 import download_icon from './download_icon.png'
@@ -94,7 +95,7 @@ export const assets = {
     back_icon,
     success_icon,
     order_icon,
-   
+    home_icon,
     location_icon,
     hum_icon,
     download_icon,
