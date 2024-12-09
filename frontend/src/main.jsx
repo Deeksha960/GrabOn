@@ -1,14 +1,14 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import { BrowserRouter } from 'react-router-dom'
-import StoreContextProvider from './Context/StoreContext.jsx'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
+import { BrowserRouter } from "react-router-dom";
+import StoreContextProvider from "./Context/StoreContext.jsx";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <StoreContextProvider>
-       <App/>
+      <App />
     </StoreContextProvider>
-  </BrowserRouter> 
-)
+  </BrowserRouter>
+);

@@ -1,15 +1,15 @@
-import React, { useContext, useEffect, useState } from 'react'
-import './PlaceOrder.css'
-import { StoreContext } from '../../Context/StoreContext'
-import axios from "axios"
+import React, { useContext, useEffect, useState } from "react";
+import "./PlaceOrder.css";
+import { StoreContext } from "../../Context/StoreContext";
+import axios from "axios";
 import { useNavigate } from "react-router";
-import { Link } from 'react-router-dom';
-import { assets } from '../../assets/assets';
+import { Link } from "react-router-dom";
+import { assets } from "../../assets/assets";
 
 const PlaceOrder = () => {
+  const { getTotalCartAmount, token, food_list, cartItems, url } =
+    useContext(StoreContext);
 
-  const { getTotalCartAmount, token, food_list, cartItems, url } = useContext(StoreContext)
-  
   const [data, setData] = useState({
     firstName: "",
     lastName: "",
@@ -19,14 +19,14 @@ const PlaceOrder = () => {
     state: "",
     zipcode: "",
     country: "",
-    phone:""
-  })
+    phone: "",
+  });
 
   const onChangeHandler = (event) => {
     const name = event.target.name;
-    const value = event.target.value
-    setData(data=>({...data,[name]:value}))
-  }
+    const value = event.target.value;
+    setData((data) => ({ ...data, [name]: value }));
+  };
 
   const placeOrder = async (event) => {
     event.preventDefault();
@@ -37,82 +37,153 @@ const PlaceOrder = () => {
         itemInfo["quantity"] = cartItems[item._id];
         orderItems.push(itemInfo);
       }
-    })
+    });
     let orderData = {
       address: data,
       items: orderItems,
-      amount:getTotalCartAmount()+2,
-    }
-    let response = await axios.post(url + "/api/order/place", orderData, { headers: { token } })
+      amount: getTotalCartAmount() + 2,
+    };
+    let response = await axios.post(url + "/api/order/place", orderData, {
+      headers: { token },
+    });
     if (response.data.success) {
       const { session_url } = response.data;
       window.location.replace(session_url);
-    }
-    else {
+    } else {
       alert("Error");
     }
-  }
+  };
 
   const navigate = useNavigate();
 
   useEffect(() => {
     if (!token) {
-      navigate('/cart')
+      navigate("/cart");
+    } else if (getTotalCartAmount() === 0) {
+      navigate("/cart");
     }
-    else if (getTotalCartAmount()===0) {
-      navigate('/cart')
-    }
-  },[token])
+  }, [token]);
 
   return (
-    
-    <form onSubmit={placeOrder} className='place-order'>
+    <form onSubmit={placeOrder} className="place-order">
       <div className="back">
-      <Link to='/cart'><img src={assets.back_icon} alt=""/></Link>
+        <Link to="/cart">
+          <img src={assets.back_icon} alt="" />
+        </Link>
       </div>
       <div className="place-order-left">
-        <p className="title"><img src={assets.location_icon} alt="" />Delivery Address</p>
+        <p className="title">
+          <img src={assets.location_icon} alt="" />
+          Delivery Address
+        </p>
         <div className="multi-fields">
-          <input required name='firstName' onChange={onChangeHandler} value={data.firstName} type="text" placeholder='First Name' />
-          <input required name='lastName' onChange={onChangeHandler} value={data.lastName} type="text" placeholder='Last Name'/>
+          <input
+            required
+            name="firstName"
+            onChange={onChangeHandler}
+            value={data.firstName}
+            type="text"
+            placeholder="First Name"
+          />
+          <input
+            required
+            name="lastName"
+            onChange={onChangeHandler}
+            value={data.lastName}
+            type="text"
+            placeholder="Last Name"
+          />
         </div>
-        <input required name='email' onChange={onChangeHandler} value={data.email} type="email" placeholder='Email' />
-        <input required name='street' onChange={onChangeHandler} value={data.street} type="text" placeholder='Street' />
+        <input
+          required
+          name="email"
+          onChange={onChangeHandler}
+          value={data.email}
+          type="email"
+          placeholder="Email"
+        />
+        <input
+          required
+          name="street"
+          onChange={onChangeHandler}
+          value={data.street}
+          type="text"
+          placeholder="Street"
+        />
         <div className="multi-fields">
-          <input required name='city' onChange={onChangeHandler} value={data.city} type="text" placeholder='City' />
-          <input required name='state' onChange={onChangeHandler} value={data.state} type="text" placeholder='State'/>
+          <input
+            required
+            name="city"
+            onChange={onChangeHandler}
+            value={data.city}
+            type="text"
+            placeholder="City"
+          />
+          <input
+            required
+            name="state"
+            onChange={onChangeHandler}
+            value={data.state}
+            type="text"
+            placeholder="State"
+          />
         </div>
         <div className="multi-fields">
-          <input required name='zipcode' onChange={onChangeHandler} value={data.zipcode} type="text" maxLength={6} placeholder='Zip code' />
-          <input required name='country' onChange={onChangeHandler} value={data.country}  type="text" placeholder='Country'/>
+          <input
+            required
+            name="zipcode"
+            onChange={onChangeHandler}
+            value={data.zipcode}
+            type="text"
+            maxLength={6}
+            placeholder="Zip code"
+          />
+          <input
+            required
+            name="country"
+            onChange={onChangeHandler}
+            value={data.country}
+            type="text"
+            placeholder="Country"
+          />
         </div>
-        <input required name='phone' onChange={onChangeHandler} value={data.phone} type="text" maxLength="10" placeholder='Phone'/>
+        <input
+          required
+          name="phone"
+          onChange={onChangeHandler}
+          value={data.phone}
+          type="text"
+          maxLength="10"
+          placeholder="Phone"
+        />
       </div>
 
       <div className="place-order-right">
-      <div className="cart-total">
+        <div className="cart-total">
           <h2>Bill Summary</h2>
           <div>
-          <div className="cart-total-details">
+            <div className="cart-total-details">
               <p>Item total</p>
               <p>₹{getTotalCartAmount()}</p>
             </div>
-            <br/>
+            <br />
             <div className="cart-total-details">
               <p>Delivery Fee</p>
-              <p>₹{getTotalCartAmount()===0?0:2}</p>
+              <p>₹{getTotalCartAmount() === 0 ? 0 : 2}</p>
             </div>
             <hr />
             <div className="cart-total-details">
               <b>Grand Total</b>
-              <b>₹{getTotalCartAmount()===0?0:getTotalCartAmount()+2}</b>
+              <b>
+                ₹{getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2}
+              </b>
             </div>
-            </div>
-            <button type='submit'>PROCEED TO PAY</button>
+          </div>
+          <button type="submit">PROCEED TO PAY</button>
         </div>
       </div>
     </form>
-  )
-}
+  );
+};
 
-export default PlaceOrder
+export default PlaceOrder;

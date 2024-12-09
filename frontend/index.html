@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -9,65 +9,80 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    
-<button id="wm-back-to-top">
-  <div class="btt-background"></div>
-  <div class="icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
-      <title>Angle Up</title>
-      <path data-name="layer1" fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2" d="M4 42 l28 -26 L60 42" stroke-linejoin="round" stroke-linecap="round"></path>
-    </svg>
-  </div>
-</button>
 
-<!-- Scroll To Top Button Javascript -->
-<script>
-(function() {
-  let throttlePause;
+    <button id="wm-back-to-top">
+      <div class="btt-background"></div>
+      <div class="icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 64 64"
+          aria-labelledby="title"
+          role="img"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <title>Angle Up</title>
+          <path
+            data-name="layer1"
+            fill="none"
+            stroke="#202020"
+            stroke-miterlimit="10"
+            stroke-width="2"
+            d="M4 42 l28 -26 L60 42"
+            stroke-linejoin="round"
+            stroke-linecap="round"
+          ></path>
+        </svg>
+      </div>
+    </button>
 
-  document.addEventListener('click', function(e) {
-    if (!e.target.closest('#wm-back-to-top')) return;
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
-  })
+    <!-- Scroll To Top Button Javascript -->
+    <script>
+      (function () {
+        let throttlePause;
 
-  document.addEventListener('DOMContentLoaded', function(){
-    let btt = document.querySelector('#wm-back-to-top');
-    let body = document.body;
-    body.append(btt);
-    if (btt?.closest('.sqs-block-content')){
-      btt.closest('.sqs-block-content').style.display = 'inline';
-    }
-  });
+        document.addEventListener("click", function (e) {
+          if (!e.target.closest("#wm-back-to-top")) return;
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
 
-  const throttle = (callback, time) => {
-    if (throttlePause) return;
+        document.addEventListener("DOMContentLoaded", function () {
+          let btt = document.querySelector("#wm-back-to-top");
+          let body = document.body;
+          body.append(btt);
+          if (btt?.closest(".sqs-block-content")) {
+            btt.closest(".sqs-block-content").style.display = "inline";
+          }
+        });
 
-    throttlePause = true;
-    setTimeout(() => {
-      callback();
-      throttlePause = false;
-    }, time);
-  };
+        const throttle = (callback, time) => {
+          if (throttlePause) return;
 
-  const checkPos = () => {
-    let pos = document.documentElement.scrollTop,
-        revealHeight = window.innerHeight * 0.9,
-        bttButton = document.querySelector('#wm-back-to-top');
-    if (pos >= revealHeight) {
-      bttButton.classList.add('show');
-    } else {
-      bttButton.classList.remove('show');
-    }
-  }
+          throttlePause = true;
+          setTimeout(() => {
+            callback();
+            throttlePause = false;
+          }, time);
+        };
 
-  window.addEventListener("scroll", () => {
-    throttle(checkPos, 200);
-  });
-  window.addEventListener('DOMContentLoaded', checkPos)
-}());
-</script>
+        const checkPos = () => {
+          let pos = document.documentElement.scrollTop,
+            revealHeight = window.innerHeight * 0.9,
+            bttButton = document.querySelector("#wm-back-to-top");
+          if (pos >= revealHeight) {
+            bttButton.classList.add("show");
+          } else {
+            bttButton.classList.remove("show");
+          }
+        };
+
+        window.addEventListener("scroll", () => {
+          throttle(checkPos, 200);
+        });
+        window.addEventListener("DOMContentLoaded", checkPos);
+      })();
+    </script>
   </body>
 </html>

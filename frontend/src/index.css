@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -8,104 +8,98 @@
   scroll-behavior: smooth;
 }
 
-body{
+body {
   min-height: 100vh;
   background-color: white;
 }
-a{
+a {
   text-decoration: none;
   color: inherit;
 }
-.app{
+.app {
   width: 80%;
   margin: auto;
 }
 
- #wm-back-to-top {
-  z-index:999;
-  position:fixed;
-  display:flex;
-  bottom:0;
-  right:0;
+#wm-back-to-top {
+  z-index: 999;
+  position: fixed;
+  display: flex;
+  bottom: 0;
+  right: 0;
   min-width: 50px;
   min-height: 50px;
   flex-direction: column;
   gap: 8px;
-  align-items:center;
-  justify-content:center;
-  box-sizing:content-box;
+  align-items: center;
+  justify-content: center;
+  box-sizing: content-box;
   margin: 8px;
   padding: 5px;
-  cursor:pointer;
-  opacity:0;
-  overflow:hidden;
+  cursor: pointer;
+  opacity: 0;
+  overflow: hidden;
   transform: translateY(0px) scale(1);
-  background:transparent;
+  background: transparent;
   border-radius: 0px;
   border-width: 0px;
   border-color: #000000;
-  border-style:solid;
-  visibility:hidden;
-  transition: opacity .3s ease,
-    transform .3s ease,
-    visibility 0s ease .3s;
-  will-change:transform;
+  border-style: solid;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s ease 0.3s;
+  will-change: transform;
   backdrop-filter: blur(0px);
-  
 
-  &.show{
+  &.show {
     transform: translateY(0px);
-    opacity:1;
+    opacity: 1;
     visibility: visible;
-    transition: opacity .3s ease,
-      transform .3s ease,
-      visibility 0s ease 0s;
-     
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s ease 0s;
   }
-  .icon{
-    position:relative;
-    display:flex;
-    justify-content:center;
-    line-height:0;
-    height:auto;
-    width:auto;
+  .icon {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    line-height: 0;
+    height: auto;
+    width: auto;
   }
- 
-  svg{
+
+  svg {
     width: 20px;
     height: 20px;
   }
-  path{
+  path {
     stroke-width: 12px;
     stroke: #000000;
   }
   .btt-background {
-    box-sizing:border-box;
-    position:fixed;
-    top:0;
-    left:0;
-    height:100%;
-    width:100%;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
     background-color: palevioletred;
     border-radius: 30px;
     opacity: 1;
-    transition: opacity .3s ease;
+    transition: opacity 0.3s ease;
   }
 
-  &:hover{
-    transform:translateY(-3px);
-    opacity: .85;
+  &:hover {
+    transform: translateY(-3px);
+    opacity: 0.85;
   }
-  &:active{
-    transform: translateY(-3px) scale(.95);
+  &:active {
+    transform: translateY(-3px) scale(0.95);
   }
 }
 
-@keyframes fadeIn{
-  0%{
+@keyframes fadeIn {
+  0% {
     opacity: 0;
   }
-  100%{
+  100% {
     opacity: 1;
   }
 }

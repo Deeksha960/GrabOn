@@ -1,17 +1,19 @@
-import React from 'react'
-import './Navbar.css'
-import {assets} from '../../assets/assets'
-import { Link } from "react-router-dom"
-
+import React from "react";
+import "./Navbar.css";
+import { assets } from "../../assets/assets";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className='navbar'>
-     <Link to='/home'> <img src={assets.logo} alt="" className="logo" /></Link>
-     <h1>Admin Panel</h1>
-      <img className='profile' src={assets.profile_image} alt="" />
+    <div className="navbar">
+      <Link to="/home">
+        {" "}
+        <img src={assets.logo} alt="" className="logo" />
+      </Link>
+      <h1>Admin Panel</h1>
+      <img className="profile" src={assets.profile_image} alt="" />
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

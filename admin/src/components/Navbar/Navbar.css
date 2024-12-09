@@ -1,23 +1,21 @@
-.navbar{
-    padding: 20px 20px;
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: plum;
-    }
-    
-    .navbar .logo{
-        width: 200px;
-        height: 80px;
-        margin-top: 10px;
-    }
-
-
-.navbar .profile{
-    width: 50px;
-    border: 2px solid purple;
-    border-radius: 25px;
-    cursor: pointer;
+.navbar {
+  padding: 20px 20px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: plum;
 }
 
+.navbar .logo {
+  width: 200px;
+  height: 80px;
+  margin-top: 10px;
+}
+
+.navbar .profile {
+  width: 50px;
+  border: 2px solid purple;
+  border-radius: 25px;
+  cursor: pointer;
+}
