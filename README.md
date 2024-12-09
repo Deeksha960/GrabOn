@@ -87,14 +87,17 @@ LOCAL SERVER :
 
 To run frontend:
 npm run dev
+
 URL : http://localhost:5173/
 
 To run backend :
 npm run server
+
 URL : http://localhost:4000
 
 To run admin:
 npm run dev
+
 URL : http://localhost:5174/
 
 ---
